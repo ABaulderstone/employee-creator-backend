@@ -1,4 +1,4 @@
-package io.nology.employeecreatorbackend.employee;
+package io.nology.employee;
 
 import io.nology.shared.mappers.BaseDecorator;
 import org.mapstruct.Mapper;
