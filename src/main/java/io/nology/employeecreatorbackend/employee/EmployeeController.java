@@ -1,4 +1,4 @@
-package io.nology.employee;
+package io.nology.employeecreatorbackend.employee;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

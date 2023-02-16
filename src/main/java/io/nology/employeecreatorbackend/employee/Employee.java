@@ -1,4 +1,4 @@
-package io.nology.employee;
+package io.nology.employeecreatorbackend.employee;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

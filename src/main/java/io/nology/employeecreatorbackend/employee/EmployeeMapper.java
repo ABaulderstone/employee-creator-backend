@@ -1,10 +1,10 @@
-package io.nology.employee;
+package io.nology.employeecreatorbackend.employee;
 
-import io.nology.shared.mappers.BaseDecorator;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
-@Mapper(uses = BaseDecorator.class)
+@Mapper(componentModel = "spring")
 public interface EmployeeMapper {
   @Mapping(source = "firstName", target = "firstName", qualifiedByName = "trim")
   @Mapping(
@@ -17,10 +17,11 @@ public interface EmployeeMapper {
   @Mapping(
     source = "mobileNumber",
     target = "mobileNumber",
-    qualifiedByName = { "trim", "convertMobileFormat" }
+    qualifiedByName = "convertMobileFormat"
   )
   Employee createDtoToEmployee(EmployeeCreateDTO dto);
 
+  @Named("convertMobileFormat")
   default String convertMobileFormat(String mobileNumber) {
     if (mobileNumber == null) {
       return null;
@@ -31,6 +32,14 @@ public interface EmployeeMapper {
       mobileNumber = "0" + mobileNumber.substring(3);
     }
 
-    return mobileNumber;
+    return mobileNumber.trim();
+  }
+
+  @Named("trim")
+  default String trim(String value) {
+    if (value == null) {
+      return null;
+    }
+    return value.trim();
   }
 }
