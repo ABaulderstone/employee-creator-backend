@@ -1,4 +1,4 @@
-package io.nology.employeecreatorbackend.employee;
+package io.nology.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
