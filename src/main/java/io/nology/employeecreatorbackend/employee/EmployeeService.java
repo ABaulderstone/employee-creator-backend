@@ -1,6 +1,7 @@
 package io.nology.employeecreatorbackend.employee;
 
 import jakarta.transaction.Transactional;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,9 @@ public class EmployeeService {
     Employee newEmployee = this.employeeMapper.createDtoToEmployee(data);
     this.employeeRepository.save(newEmployee);
     return newEmployee;
+  }
+
+  public List<Employee> findAll() {
+    return this.employeeRepository.findAll();
   }
 }
