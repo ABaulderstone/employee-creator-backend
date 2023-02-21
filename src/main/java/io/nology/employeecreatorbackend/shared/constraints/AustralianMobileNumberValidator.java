@@ -1,4 +1,4 @@
-package io.nology.shared.constraints;
+package io.nology.employeecreatorbackend.shared.constraints;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

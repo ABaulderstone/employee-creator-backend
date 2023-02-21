@@ -1,6 +1,6 @@
 package io.nology.employeecreatorbackend.employee;
 
-import io.nology.shared.constraints.ValidAustralianMobileNumber;
+import io.nology.employeecreatorbackend.shared.constraints.ValidAustralianMobileNumber;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 

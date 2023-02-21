@@ -1,4 +1,4 @@
-package io.nology.shared.constraints;
+package io.nology.employeecreatorbackend.shared.constraints;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.TYPE_USE;
