@@ -6,18 +6,31 @@ import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
-  @Mapping(source = "firstName", target = "firstName", qualifiedByName = "trim")
+  @Mapping(
+    source = "firstName",
+    target = "firstName",
+    qualifiedByName = "trimString"
+  )
   @Mapping(
     source = "middleName",
     target = "middleName",
-    qualifiedByName = "trim"
+    qualifiedByName = "trimString"
   )
-  @Mapping(source = "lastName", target = "lastName", qualifiedByName = "trim")
-  @Mapping(source = "email", target = "email", qualifiedByName = "trim")
+  @Mapping(
+    source = "lastName",
+    target = "lastName",
+    qualifiedByName = "trimString"
+  )
+  @Mapping(source = "email", target = "email", qualifiedByName = "trimString")
   @Mapping(
     source = "mobileNumber",
     target = "mobileNumber",
-    qualifiedByName = "convertMobileFormat"
+    qualifiedByName = "trimString"
+  )
+  @Mapping(
+    source = "mobileNumber",
+    target = "mobileNumber",
+    qualifiedByName = "convertMobileNumber"
   )
   Employee createDtoToEmployee(EmployeeCreateDTO dto);
 
@@ -32,14 +45,11 @@ public interface EmployeeMapper {
       mobileNumber = "0" + mobileNumber.substring(3);
     }
 
-    return mobileNumber.trim();
+    return mobileNumber;
   }
 
-  @Named("trim")
-  default String trim(String value) {
-    if (value == null) {
-      return null;
-    }
-    return value.trim();
+  @Named("trimString")
+  default String trimString(String value) {
+    return value == null ? null : value.trim();
   }
 }
