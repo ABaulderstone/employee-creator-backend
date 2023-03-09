@@ -1,12 +1,24 @@
+# fly.toml file generated for employee-creator-spring on 2023-03-09T17:51:45+11:00
+
+app = "employee-creator-spring"
+
 [[services]]
   internal_port = 8080
   protocol = "tcp"
 
+  [[services.ports]]
+    handlers = ["http"]
+    port = "80"
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20
+    type = "requests"
 
   [services.env]
+    SPRING_DATASOURCE_PASSWORD = "${DB_PASSWORD}"
     SPRING_DATASOURCE_URL = "jdbc:mysql://${MYSQL_HOSTNAME}:${MYSQL_PORT}/${DB_NAME}"
     SPRING_DATASOURCE_USERNAME = "${DB_USER}"
-    SPRING_DATASOURCE_PASSWORD = "${DB_PASSWORD}"
