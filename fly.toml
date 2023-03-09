@@ -1,0 +1,12 @@
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [services.env]
+    SPRING_DATASOURCE_URL = "jdbc:mysql://${MYSQL_HOSTNAME}:${MYSQL_PORT}/${DB_NAME}"
+    SPRING_DATASOURCE_USERNAME = "${DB_USER}"
+    SPRING_DATASOURCE_PASSWORD = "${DB_PASSWORD}"

@@ -84,6 +84,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>employee-creator-backend</finalName>
 	</build>
 
 </project>

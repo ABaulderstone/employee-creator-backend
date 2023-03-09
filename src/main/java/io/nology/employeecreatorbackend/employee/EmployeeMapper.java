@@ -27,11 +27,11 @@ public interface EmployeeMapper {
     target = "mobileNumber",
     qualifiedByName = "trimString"
   )
-  @Mapping(
-    source = "mobileNumber",
-    target = "mobileNumber",
-    qualifiedByName = "convertMobileNumber"
-  )
+  // @Mapping(
+  //   source = "mobileNumber",
+  //   target = "mobileNumber",
+  //   qualifiedByName = "convertMobileNumber"
+  // )
   Employee createDtoToEmployee(EmployeeCreateDTO dto);
 
   @Named("convertMobileFormat")
